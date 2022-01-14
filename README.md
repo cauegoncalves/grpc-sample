@@ -23,3 +23,5 @@ dotnet run --project .\CalculatorServer\CalculatorServer.csproj
 ```powershell
 dotnet run --project .\CalculatorClient\CalculatorClient.csproj
 ```
+---
+##### Author: caue.goncalves@gmail.com
