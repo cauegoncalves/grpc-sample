@@ -23,6 +23,7 @@ namespace CalculatorClient.Programs
             {
                 Console.WriteLine(result.ResponseStream.Current.Factor);
             }
+            Console.WriteLine("Decompose finished.");
         }
     }
 }

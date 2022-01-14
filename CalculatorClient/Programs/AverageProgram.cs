@@ -10,21 +10,26 @@ namespace CalculatorClient.Programs
         private async Task RunAverageProgram(CalculatorServiceClient client)
         {
             var stream = client.Average();
-
-            bool validNumber;
-            do
+            try
             {
-                string? value = Read("Value: ");
-                validNumber = int.TryParse(value, out var parsedValue);
-                if (validNumber)
+                bool validNumber;
+                do
                 {
-                    await stream.RequestStream.WriteAsync(new AverageRequest { Value = parsedValue });
-                }
-            } while (validNumber);
-            await stream.RequestStream.CompleteAsync();
+                    string? value = Read("Value: ");
+                    validNumber = int.TryParse(value, out var parsedValue);
+                    if (validNumber)
+                    {
+                        await stream.RequestStream.WriteAsync(new AverageRequest { Value = parsedValue });
+                    }
+                } while (validNumber);
+            }
+            finally
+            {
+                await stream.RequestStream.CompleteAsync();
+            }
 
             var response = await stream.ResponseAsync;
-            Console.WriteLine(response.Average);
+            Console.WriteLine($"The average result is {response.Average}.");
         }
     }
 }

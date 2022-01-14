@@ -19,7 +19,7 @@ namespace CalculatorClient.Programs
             };
 
             var result = await client.SumAsync(request);
-            Console.WriteLine(result.Result);
+            Console.WriteLine($"The sum is {result.Result}.");
         }
     }
 }

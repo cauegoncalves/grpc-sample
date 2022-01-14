@@ -11,13 +11,14 @@ namespace CalculatorClient.Programs
         {
             var channel = new Channel("127.0.0.1:50001", ChannelCredentials.Insecure);
             await channel.ConnectAsync();
-            Console.WriteLine("Connected to the server");
+            Console.WriteLine("Connected to the server...");
             var client = new CalculatorServiceClient(channel);
             return new CalculatorServiceConnectionHandler(channel, client);
         }
 
         protected async Task InternalRunProgram(string programTitle, Func<CalculatorServiceClient, Task> programTask)
         {
+            Console.Clear();
             PrintProgramTitle(programTitle);
             await using (var handler = await Connect())
             {
