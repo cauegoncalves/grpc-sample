@@ -37,7 +37,7 @@ message MaximumResponse {
 
 service CalculatorService {
 	rpc Sum (CalculatorRequest) returns (CalculatorResponse) {}
-	rpc DecompositeNumber (NumberDecompositionRequest) returns (stream NumberDecompositionResponse) {}
+	rpc DecomposeNumber (NumberDecompositionRequest) returns (stream NumberDecompositionResponse) {}
 	rpc Average (stream AverageRequest) returns (AverageResponse) {}
 	rpc Max (stream MaximumRequest) returns (stream MaximumResponse) {}
 }

@@ -17,7 +17,7 @@ namespace CalculatorClient.Programs
                 Value = Convert.ToInt32(value)
             };
 
-            var result = client.DecompositeNumber(request);
+            var result = client.DecomposeNumber(request);
 
             while (await result.ResponseStream.MoveNext())
             {

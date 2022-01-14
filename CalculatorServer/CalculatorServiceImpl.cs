@@ -21,7 +21,7 @@ namespace CalculatorServer
             return Task.FromResult(response);
         }
 
-        public override async Task DecompositeNumber(NumberDecompositionRequest request, IServerStreamWriter<NumberDecompositionResponse> responseStream, ServerCallContext context)
+        public override async Task DecomposeNumber(NumberDecompositionRequest request, IServerStreamWriter<NumberDecompositionResponse> responseStream, ServerCallContext context)
         {
             var value = request.Value;
             var factor = 2;
